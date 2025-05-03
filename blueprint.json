@@ -1,0 +1,10 @@
+{
+  "name": "phpinfo-wp",
+  "title": "phpinfo WP",
+  "description": "A simple plugin to look up information about PHP and manage PHP configurations and directive values.",
+  "author": "Exeebit",
+  "version": "6.1",
+  "slug": "phpinfo-wp",
+  "license": "GPLv3",
+  "namespace": "phpinfo_wp"
+}

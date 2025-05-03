@@ -1,12 +1,12 @@
 <?php
 
 /*
-Plugin Name: Phpinfo WP
-Plugin URI: www.github.com/s4gor/checkWPFiles
+Plugin Name: phpinfo WP
+Plugin URI: http://exeebit.com/wordpress-plugins/phpinfo-wp
 Description: A simple plugin to look up information about PHP and manage PHP configurations and directive values.
-Version: 2.1
-Author: Imran Hossain Sagor
-Author URI: www.github.com/s4gor
+Version: 6.1
+Author: Exeebit
+Author URI: http://exeebit.com
 License: GPLv3
 */
 
@@ -31,11 +31,62 @@ if(!class_exists( 'Phpinfo_wp' )):
 		}
 
 		public function add_admin_pages() {
-			add_submenu_page('tools.php', 'phpinfo() WP', 'phpinfo() WP', 'manage_options', 'phpinfo_wp', [$this, 'views']);
+		add_menu_page( 'phpinfo() WP', 'phpinfo() WP', 
+       'manage_options', 'phpinfo-wp', [$this, 'phpinfo_view'], 'dashicons-tickets', 99 );
+
+    	add_submenu_page(
+        'phpinfo-wp',
+        __( '.htaccess editor', 'textdomain' ),
+        __( '.htaccess editor', 'textdomain' ),
+        'manage_options',
+        'htaccess_editor',
+        [$this, 'htaccess_view']
+    );
+		add_submenu_page(
+        'phpinfo-wp',
+        __( 'Extensions', 'textdomain' ),
+        __( 'Extensions', 'textdomain' ),
+        'manage_options',
+        'extensions',
+        [$this, 'extension_view']
+    );
+		add_submenu_page(
+        'phpinfo-wp',
+        __( 'Basic Info', 'textdomain' ),
+        __( 'Basic Info', 'textdomain' ),
+        'manage_options',
+        'info',
+        [$this, 'info_view']
+    );
+		add_submenu_page(
+        'phpinfo-wp',
+        __( 'Log', 'textdomain' ),
+        __( 'Log', 'textdomain' ),
+        'manage_options',
+        'log',
+        [$this, 'log_view']
+    );
+		
 		}
 
-		public function views() {
-			require_once plugin_dir_path( __FILE__ ) . 'views/views.php';
+		public function phpinfo_view() {
+			require_once plugin_dir_path( __FILE__ ) . 'views/phpinfo.php';
+		}
+
+		public function htaccess_view() {
+			require_once plugin_dir_path( __FILE__ ) . 'views/htaccess.php';
+		}
+
+		public function extension_view() {
+			require_once plugin_dir_path( __FILE__ ) . 'views/extension.php';
+		}
+
+		public function info_view() {
+			require_once plugin_dir_path( __FILE__ ) . 'views/info.php';
+		}
+
+		public function log_view() {
+			require_once plugin_dir_path( __FILE__ ) . 'views/log.php';
 		}
 
 		public function activate() {
@@ -45,10 +96,12 @@ if(!class_exists( 'Phpinfo_wp' )):
 		public function deactivate() {
 			flush_rewrite_rules();
 		}
+
 		public function enqueue() {
-			wp_enqueue_style('phpinfo-WP', plugins_url( 'css/style.min.css', __FILE__ ));
-			wp_enqueue_script('phpinfo-WP', plugin_dir_url(__FILE__) . 'js/scripts.min.js#async');
+			wp_enqueue_style('phpinfo-WP', plugins_url( 'css/style.css', __FILE__ ));
+			wp_enqueue_script('phpinfo-WP', plugin_dir_url(__FILE__) . 'js/scripts.js#async');
 		}
+
 		public function script_async($url) {
 		    if(strpos($url, '#async') === false) {
 		        return $url;
@@ -56,8 +109,9 @@ if(!class_exists( 'Phpinfo_wp' )):
 		        return str_replace('#async', '', $url) . "' async='async";
             }
         }
+
         public function footer_notice(){
-            echo '<span id="footer-thankyou">Thank you for using <a href="https://wordpress.org/plugins/phpinfo-wp/">phpinfo() WP</a></span>';
+            echo '<span id="footer-thankyou">Thank you for using <a href="https://wordpress.org/plugins/phpinfo-wp/">phpinfo() WP</a>. <a href="http://exeebit.com/wordpress-plugins/phpinfo-wp/donate" target="_blank">Buy Me a Coffee</a><span style="color: red"> &#x2764;</span></span>';
         }
 
         public function thankyou() {
@@ -67,7 +121,7 @@ if(!class_exists( 'Phpinfo_wp' )):
         public function meta($links = [], $file = "") {
         	if(strpos($file, "phpinfo-wp/phpinfo-wp.php") !== false) {
             	$new_link = [
-                	"donation" => '<a href="" target="_blank">Support Me &#x2764;</a>'
+                	"donation" => '<a href="http://exeebit.com/wordpress-plugins/phpinfo-wp/donate" target="_blank">Buy Me a Coffee <span style="color: red">&#x2764;</span></a>'
             	];
 
             	$links = array_merge($links, $new_link);
@@ -83,7 +137,7 @@ if(!class_exists( 'Phpinfo_wp' )):
 
 			if($plugin === $plugin_file) {
 				$ads_links = [
-					'<a href="' . admin_url( 'tools.php?page=phpinfo_wp' ) . '">Settings</a>',
+					'<a href="' . admin_url( 'admin.php?page=phpinfo-wp' ) . '">Settings</a>',
 				];
 				$links = array_merge($ads_links, $links);
 			}
@@ -95,11 +149,10 @@ if(!class_exists( 'Phpinfo_wp' )):
 	if(class_exists( 'Phpinfo_wp' )) $phpinfo_wp = new Phpinfo_wp();
 	else die('Plugin internal code conflict');
 
-
 	$phpinfo_wp->register();
-
 
 	register_activation_hook(__FILE__, [$phpinfo_wp, 'activate']);
 	register_deactivation_hook(__FILE__, [$phpinfo_wp, 'deactivate']);
 
 	endif;
+	

@@ -3,7 +3,7 @@
 /**
  *
  *
- *@package checkWPFiles
+ *@package
  *
  */
 

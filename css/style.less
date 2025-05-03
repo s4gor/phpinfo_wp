@@ -1,5 +1,11 @@
 @default-color: #777BB3;
 
+#phpinfo-wp-notice {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
 #htaccess-phpinfo {
   text-align: center;
 }
@@ -52,7 +58,7 @@
 }
 
 #title-phpinfo-WP {
-  margin-top: 5px;
+  margin-top: 30px;
   margin-bottom: 30px;
   letter-spacing: 10px;
   margin-left: 20px;
@@ -72,7 +78,6 @@ html {
 }
 
 #topButton-phpinfo-WP {
-  display: none;
   position: fixed;
   bottom: 20px;
   right: 30px;
@@ -184,6 +189,7 @@ html {
   background-color: @default-color;
   color: white;
 }
+
 .tabcontent {
   display: none;
   padding: 6px 12px;
@@ -205,4 +211,34 @@ html {
   margin-top: 20px;
   font-weight: 600;
   color: @default-color;
+}
+
+#phpinfo-log {
+  line-height: 1.5;
+  height: 400px;
+  width: 98.24%;
+  overflow:auto;
+  background-color: floralwhite;
+  color: @default-color;
+  font-family: sans-serif;
+  padding: 10px;
+  margin-top: 30px;
+  border-radius: 10px;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+#phpinfo-disk-info {
+  font-size: 14px;
+}
+
+#info-phpinfo-WP {
+  display: flex;
+  justify-content: space-between;
+}
+
+#phpinfo_mc {
+  margin-top: 21px;
+  letter-spacing: 10px;
+  margin-left: 20px;
 }
