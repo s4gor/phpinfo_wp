@@ -1,3 +1,90 @@
+/* =========================================================
+   phpinfo() page — override phpinfo's own dated CSS
+   ========================================================= */
+
+/* Strip phpinfo's default table width, re-lay it out cleanly */
+#phpinfo-WP .center {
+  text-align: left;
+}
+#phpinfo-WP .center table {
+  width: 100% !important;
+  max-width: 100% !important;
+  border-collapse: collapse !important;
+  border: none !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08) !important;
+  margin: 0 0 20px !important;
+  border-radius: 6px;
+  overflow: hidden;
+}
+/* Section header rows */
+#phpinfo-WP .center tr.h th,
+#phpinfo-WP .center tr.h td {
+  background: #777BB3 !important;
+  color: #fff !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .6px !important;
+  padding: 10px 14px !important;
+  text-align: left !important;
+  border: none !important;
+}
+/* Directive name cell */
+#phpinfo-WP .center td.e {
+  background: #f5f5f8 !important;
+  color: #1d2327 !important;
+  font-family: monospace !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  padding: 7px 14px !important;
+  width: 280px !important;
+  border: none !important;
+  border-bottom: 1px solid #eee !important;
+  vertical-align: top !important;
+}
+/* Value cell */
+#phpinfo-WP .center td.v {
+  background: #fff !important;
+  color: #2c2c2c !important;
+  font-size: 12px !important;
+  padding: 7px 14px !important;
+  border: none !important;
+  border-bottom: 1px solid #eee !important;
+  max-width: none !important;
+  overflow-x: auto !important;
+  word-break: break-word !important;
+}
+/* Alternating rows */
+#phpinfo-WP .center tr:nth-child(even) td.e { background: #ededf2 !important; }
+#phpinfo-WP .center tr:nth-child(even) td.v { background: #f9f9fc !important; }
+/* Section h1 / h2 */
+#phpinfo-WP .center h1 {
+  font-size: 18px !important;
+  color: #1d2327 !important;
+  margin: 8px 0 20px !important;
+  font-weight: 700 !important;
+}
+#phpinfo-WP .center h2 {
+  font-size: 14px !important;
+  color: #777BB3 !important;
+  margin: 28px 0 6px !important;
+  padding-bottom: 6px !important;
+  border-bottom: 2px solid #e0e0e8 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .5px !important;
+  scroll-margin-top: 60px;
+}
+/* phpinfo image (PHP logo) */
+#phpinfo-WP .center img { display: none; }
+/* Links inside phpinfo */
+#phpinfo-WP .center a { color: #777BB3; }
+/* Search highlight */
+#phpinfo-WP tr.phpinfowp-row-hl td.e,
+#phpinfo-WP tr.phpinfowp-row-hl td.v {
+  background: #fffde7 !important;
+}
+
 #phpinfo-wp-notice {
   display: flex;
   justify-content: space-between;
@@ -223,4 +310,2267 @@ html {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+/* =========================================================
+   Design system — shared across all pages
+   ========================================================= */
+.phpinfowp-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.phpinfowp-page-header h1 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.phpinfowp-page-subtitle {
+  margin: 0;
+  color: #666;
+  font-size: 13px;
+}
+.phpinfowp-section-heading {
+  margin: 32px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 16px;
+}
+
+/* Score card (security headers + config grader) */
+.phpinfowp-score-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+.phpinfowp-score-card-body { flex: 1; }
+.phpinfowp-score-card-value {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1d2327;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.phpinfowp-score-card-value span { font-size: 16px; font-weight: 400; color: #888; }
+.phpinfowp-score-card-meta { font-size: 13px; color: #666; display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* =========================================================
+   Pro shared
+   ========================================================= */
+.phpinfowp-pro-page {
+  max-width: 1100px;
+  padding: 20px 0 40px;
+}
+.phpinfowp-pro-page h1 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.phpinfowp-pro-badge {
+  display: inline-block;
+  background: #777BB3;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 2px 7px;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+
+/* =========================================================
+   Upgrade gate
+   ========================================================= */
+.phpinfowp-upgrade-gate {
+  display: flex;
+  justify-content: center;
+  padding: 48px 20px;
+}
+.phpinfowp-upgrade-inner {
+  max-width: 700px;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-radius: 10px;
+  padding: 40px 48px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+  text-align: center;
+}
+.phpinfowp-upgrade-badge {
+  display: inline-block;
+  background: #777BB3;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding: 4px 14px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+.phpinfowp-upgrade-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: #1d2327;
+}
+.phpinfowp-upgrade-price {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 28px;
+}
+.phpinfowp-upgrade-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 24px;
+  text-align: left;
+  margin-bottom: 32px;
+}
+@media (max-width: 600px) { .phpinfowp-upgrade-features { grid-template-columns: 1fr; } }
+.phpinfowp-upgrade-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+}
+.phpinfowp-upgrade-feature .dashicons {
+  color: #777BB3;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+.phpinfowp-upgrade-feature strong { display: block; margin-bottom: 1px; color: #1d2327; font-size: 13px; }
+.phpinfowp-upgrade-feature span   { color: #666; font-size: 12px; line-height: 1.4; }
+.phpinfowp-upgrade-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.phpinfowp-upgrade-cta {
+  display: inline-block;
+  background: #777BB3;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 12px 32px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background .15s;
+}
+.phpinfowp-upgrade-cta:hover { background: #6366a0; color: #fff; }
+.phpinfowp-upgrade-secondary {
+  font-size: 13px;
+  color: #777BB3;
+  text-decoration: underline;
+}
+.phpinfowp-upgrade-footer {
+  font-size: 12px;
+  color: #888;
+  margin: 0;
+}
+
+/* =========================================================
+   License page
+   ========================================================= */
+.phpinfowp-license-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-left: 4px solid #ccc;
+  border-radius: 8px;
+  padding: 22px 26px;
+  max-width: 760px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+  margin-bottom: 8px;
+}
+.phpinfowp-license-card.is-active   { border-left-color: #00a32a; }
+.phpinfowp-license-card.is-inactive { border-left-color: #d63638; }
+
+.phpinfowp-license-status {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 18px;
+}
+.phpinfowp-license-status .dashicons {
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.phpinfowp-license-status-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1d2327;
+  margin-bottom: 2px;
+}
+.phpinfowp-license-status-sub {
+  font-size: 13px;
+  color: #666;
+}
+
+.phpinfowp-license-key-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+.phpinfowp-license-key-label {
+  font-weight: 600;
+  color: #555;
+}
+.phpinfowp-license-key-display code {
+  background: #f0f0f1;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  letter-spacing: .5px;
+}
+
+.phpinfowp-license-form { margin: 0; }
+.phpinfowp-license-input-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1d2327;
+  margin-bottom: 8px;
+}
+.phpinfowp-license-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.phpinfowp-license-input-row input {
+  flex: 1;
+  font-family: monospace;
+  font-size: 13px;
+  padding: 8px 12px;
+  border: 1px solid #c3c4c7;
+  border-radius: 4px;
+  background: #fff;
+  min-width: 0;
+}
+.phpinfowp-license-input-row input:focus {
+  border-color: #777BB3;
+  box-shadow: 0 0 0 1px #777BB3;
+  outline: none;
+}
+.phpinfowp-license-input-row .button {
+  flex-shrink: 0;
+}
+
+/* Features grid */
+.phpinfowp-license-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 14px;
+  max-width: 1100px;
+  margin-bottom: 24px;
+}
+.phpinfowp-license-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.04);
+}
+.phpinfowp-license-feature .dashicons {
+  flex-shrink: 0;
+  color: #777BB3;
+  font-size: 22px;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+}
+.phpinfowp-license-feature-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1d2327;
+  margin-bottom: 3px;
+}
+.phpinfowp-license-feature-desc {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.45;
+}
+
+.phpinfowp-license-cta-row {
+  margin-top: 8px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #f6f4ff 0%, #fff 100%);
+  border: 1px solid #e8e3ff;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 1100px;
+}
+.phpinfowp-license-cta-meta {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: #777;
+}
+
+/* =========================================================
+   EOL Alerts
+   ========================================================= */
+.phpinfowp-eol-current-card {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-left: 5px solid #8c8fae;
+  border-radius: 6px;
+  padding: 20px 28px;
+  max-width: 800px;
+}
+.eol-status-eol     { border-left-color: #d63638; }
+.eol-status-warning { border-left-color: #dba617; }
+.eol-status-ok      { border-left-color: #00a32a; }
+.phpinfowp-eol-current-version {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+}
+.version-label  { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: .5px; }
+.version-number { font-size: 26px; font-weight: 700; color: #1d2327; margin-top: 4px; }
+.phpinfowp-eol-current-info p { margin: 6px 0 0; font-size: 14px; }
+.eol-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+.eol-badge-eol     { background: #fce8e8; color: #d63638; }
+.eol-badge-warning { background: #fff8e5; color: #996800; }
+.eol-badge-ok      { background: #edfaef; color: #1a7f37; }
+.eol-badge-unknown { background: #f0f0f1; color: #50575e; }
+.phpinfowp-eol-table th,
+.phpinfowp-eol-table td { vertical-align: middle; }
+.phpinfowp-current-row { background: #f0f4ff !important; }
+
+/* =========================================================
+   Security Headers
+   ========================================================= */
+.phpinfowp-sec-header-summary {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-radius: 6px;
+  padding: 20px 28px;
+  max-width: 800px;
+}
+.phpinfowp-grade-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  font-size: 26px;
+  font-weight: 800;
+  flex-shrink: 0;
+  color: #fff;
+  background: #8c8fae;
+}
+.phpinfowp-grade-circle.grade-aplus,
+.phpinfowp-grade-circle.grade-a { background: #00a32a; }
+.phpinfowp-grade-circle.grade-b { background: #1a7f37; }
+.phpinfowp-grade-circle.grade-c { background: #dba617; }
+.phpinfowp-grade-circle.grade-d { background: #d63638; }
+.phpinfowp-grade-circle.grade-f { background: #8d2626; }
+.phpinfowp-sec-table td { vertical-align: top; padding: 10px 12px; }
+.phpinfowp-header-missing td:first-child { opacity: .8; }
+
+/* =========================================================
+   Config Snapshots
+   ========================================================= */
+.phpinfowp-snap-card {
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-radius: 6px;
+  padding: 20px 24px;
+  min-width: 280px;
+}
+.phpinfowp-snap-select { max-width: 340px; width: 100%; }
+.phpinfowp-diff-table td { vertical-align: middle; }
+.diff-changed { background: #fff8e5 !important; }
+.diff-added   { background: #edfaef !important; }
+.diff-removed { background: #fce8e8 !important; }
+.diff-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.diff-badge-changed { background: #fff8e5; color: #996800; }
+.diff-badge-added   { background: #edfaef; color: #1a7f37; }
+.diff-badge-removed { background: #fce8e8; color: #d63638; }
+
+/* =========================================================
+   Error Log Viewer
+   ========================================================= */
+.phpinfowp-log-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.phpinfowp-log-meta { font-size: 13px; color: #444; }
+#phpinfowp-log-viewer {
+  font-family: monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  background: #1e1e2e;
+  color: #cdd6f4;
+  border-radius: 6px;
+  padding: 12px 16px;
+  max-height: 550px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+.log-line { padding: 1px 0; }
+.log-fatal   { color: #f38ba8; font-weight: 600; }
+.log-warning { color: #fab387; }
+.log-notice  { color: #f9e2af; }
+.log-debug   { color: #89dceb; }
+.log-default { color: #cdd6f4; }
+
+/* =========================================================
+   OPcache Dashboard
+   ========================================================= */
+.phpinfowp-opcache-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  max-width: 960px;
+}
+.phpinfowp-opcache-card {
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-radius: 6px;
+  padding: 20px 24px;
+}
+.phpinfowp-opcache-hitrate {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  grid-column: 1 / -1;
+}
+.phpinfowp-progress-bar-wrap {
+  background: #f0f0f1;
+  border-radius: 4px;
+  height: 12px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.phpinfowp-progress-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width .3s;
+}
+
+/* =========================================================
+   Config Grader
+   ========================================================= */
+.phpinfowp-grade-table td { vertical-align: top; padding: 8px 10px; font-size: 13px; }
+.phpinfowp-grade-table code { font-size: 12px; }
+
+/* =========================================================
+   phpinfo page — search toolbar
+   ========================================================= */
+.phpinfowp-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 0 16px;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   Extensions page
+   ========================================================= */
+.phpinfowp-ext-page { padding-top: 12px; }
+.phpinfowp-ext-section { margin-bottom: 28px; }
+.phpinfowp-ext-heading {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #dcdcde;
+}
+.phpinfowp-ext-heading-loaded  { color: #1d2327; border-color: #00a32a; }
+.phpinfowp-ext-heading-missing { color: #d63638; border-color: #d63638; }
+.phpinfowp-ext-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 6px;
+}
+.phpinfowp-ext-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  background: #f9f9f9;
+  border: 1px solid #e8e8e8;
+}
+.phpinfowp-ext-loaded  { background: #f0faf2; border-color: #c3e6cb; }
+.phpinfowp-ext-missing { background: #fff4f4; border-color: #f5c6c6; }
+.phpinfowp-ext-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.phpinfowp-ext-dot-loaded  { background: #00a32a; }
+.phpinfowp-ext-dot-missing { background: #d63638; }
+.phpinfowp-ext-name { font-family: monospace; font-size: 12px; flex: 1; }
+.phpinfowp-ext-ver  { font-size: 10px; color: #666; white-space: nowrap; }
+
+/* =========================================================
+   Basic Info / Server Overview
+   ========================================================= */
+.phpinfowp-info-page { max-width: 1000px; padding-top: 8px; }
+.phpinfowp-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 14px;
+  margin-bottom: 8px;
+}
+.phpinfowp-info-card {
+  background: #fff;
+  border: 1px solid #dcdcde;
+  border-radius: 6px;
+  padding: 16px 18px;
+}
+.phpinfowp-info-card-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: #666;
+  margin-bottom: 6px;
+}
+.phpinfowp-info-card-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1d2327;
+  margin-bottom: 4px;
+}
+.phpinfowp-info-card-sub { font-size: 12px; color: #555; }
+.phpinfowp-mini-bar-wrap {
+  background: #f0f0f1;
+  border-radius: 3px;
+  height: 5px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+.phpinfowp-mini-bar { height: 100%; border-radius: 3px; }
+.phpinfowp-info-table td:first-child { width: 210px; color: #555; font-size: 13px; }
+.phpinfowp-info-table td:last-child  { font-size: 13px; }
+.phpinfowp-info-section-head {
+  background: #f8f8fa !important;
+  font-size: 11px !important;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: #777BB3 !important;
+  padding: 8px 12px !important;
+}
+
+/* =========================================================
+   .htaccess Change Log
+   ========================================================= */
+/* =========================================================
+   Activity Log
+   ========================================================= */
+/* .phpinfowp-log-page composes with .phpinfowp-pro-page for consistent
+   width and top-padding — no overrides needed here. */
+
+.phpinfowp-log-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.phpinfowp-log-filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.phpinfowp-log-filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #555;
+  background: #f0f0f1;
+  border: 1px solid #dcdcde;
+  transition: background .15s, color .15s;
+}
+.phpinfowp-log-filter-pill:hover { background: #e0e0e0; color: #333; }
+.phpinfowp-log-filter-pill.active { background: #777BB3; color: #fff; border-color: #777BB3; }
+
+.phpinfowp-log-filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  font-size: 10px;
+  font-weight: 700;
+  background: rgba(0,0,0,.12);
+}
+.phpinfowp-log-filter-pill.active .phpinfowp-log-filter-count {
+  background: rgba(255,255,255,.25);
+}
+
+.phpinfowp-log-empty {
+  text-align: center;
+  padding: 56px 20px;
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+/* Timeline */
+.phpinfowp-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.phpinfowp-timeline-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 18px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f1;
+  border-left: 4px solid #ccc;
+  transition: background .12s;
+}
+.phpinfowp-timeline-entry:last-child { border-bottom: none; }
+.phpinfowp-timeline-entry:hover { background: #fafafa; }
+
+.phpinfowp-timeline-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+.phpinfowp-timeline-body { flex: 1; min-width: 0; }
+
+.phpinfowp-timeline-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.phpinfowp-timeline-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  padding: 2px 7px;
+  border-radius: 3px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.phpinfowp-timeline-file {
+  font-size: 12px;
+  background: #f0f0f0;
+  padding: 1px 6px;
+  border-radius: 3px;
+  color: #444;
+}
+
+.phpinfowp-timeline-user {
+  font-size: 12px;
+  color: #888;
+}
+
+.phpinfowp-timeline-meta {
+  font-size: 12px;
+  color: #999;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   .htaccess Editor
+   ========================================================= */
+.phpinfowp-htaccess-page { max-width: 1200px; padding-top: 8px; }
+.phpinfowp-htaccess-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: flex-start;
+}
+@media (max-width: 960px) {
+  .phpinfowp-htaccess-layout { grid-template-columns: 1fr; }
+}
+#htaccess-editor {
+  width: 100%;
+  min-height: 260px;
+  font-family: monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  box-sizing: border-box;
+  resize: vertical;
+}
+.phpinfowp-htaccess-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.phpinfowp-htaccess-preview {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11.5px;
+  line-height: 1.5;
+  padding: 12px 14px;
+  border-radius: 6px;
+  max-height: 360px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin: 0;
+}
+
+/* Long file paths in the banner + footer (.user.ini location etc.) must
+   wrap, not push the layout sideways. */
+.phpinfowp-htaccess-page code {
+  word-break: break-all;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+.phpinfowp-htaccess-banner {
+  font-size: 13px;
+  line-height: 1.55;
+}
+.phpinfowp-htaccess-banner code {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+/* =========================================================
+   SSL Monitor
+   ========================================================= */
+.phpinfowp-ssl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+.phpinfowp-ssl-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-top: 4px solid #ccc;
+  border-radius: 8px;
+  padding: 18px 20px 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+.phpinfowp-ssl-error {
+  border-top-color: #d63638 !important;
+}
+.phpinfowp-ssl-card-host {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1d2327;
+  margin-bottom: 6px;
+  word-break: break-all;
+}
+.phpinfowp-ssl-card-days {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 8px 0;
+}
+.phpinfowp-ssl-card-status {
+  margin-bottom: 12px;
+}
+.phpinfowp-ssl-card-meta {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  color: #555;
+}
+.phpinfowp-ssl-card-meta td {
+  padding: 3px 0;
+}
+.phpinfowp-ssl-card-meta td:first-child {
+  color: #888;
+  width: 52px;
+}
+@media (max-width: 600px) {
+  .phpinfowp-ssl-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   Admin Bar Indicator
+   ========================================================= */
+#wpadminbar #wp-admin-bar-phpinfowp-indicator > .ab-item {
+  font-size: 12px !important;
+  padding: 0 10px !important;
+}
+#wpadminbar #wp-admin-bar-phpinfowp-indicator .ab-sub-wrapper {
+  min-width: 200px;
+}
+#wpadminbar #wp-admin-bar-phpinfowp-indicator .ab-submenu .ab-item {
+  font-size: 12px !important;
+}
+
+/* =========================================================
+   Topbar (Elementor-style header) — every plugin page
+   ========================================================= */
+.phpinfowp-topbar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  height: 56px;
+  padding: 0 24px;
+  background: #1d2327;
+  color: #fff;
+  box-sizing: border-box;
+}
+body.phpinfowp-page .phpinfowp-topbar { display: flex; }
+.phpinfowp-topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.phpinfowp-topbar-logo {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  flex-shrink: 0;
+}
+.phpinfowp-topbar-name {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .2px;
+  color: #fff;
+  white-space: nowrap;
+}
+.phpinfowp-topbar-sep {
+  color: #50575e;
+  margin: 0 2px;
+}
+.phpinfowp-topbar-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #c3c4c7;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.phpinfowp-topbar-actions { display: flex; align-items: center; gap: 12px; }
+.phpinfowp-topbar-cta {
+  display: inline-block;
+  padding: 7px 16px;
+  background: #777BB3;
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  transition: background .15s;
+}
+.phpinfowp-topbar-cta:hover,
+.phpinfowp-topbar-cta:focus { background: #6366a0; color: #fff !important; }
+.phpinfowp-topbar-pro-active {
+  font-size: 13px;
+  font-weight: 600;
+  color: #46d160;
+}
+
+/* Page-wide breathing room on every plugin page.
+   #wpbody-content already has WP's bottom padding; we add top/right and
+   .phpinfowp-has-sidenav adds left padding below.
+   box-sizing:border-box prevents the added padding from creating horizontal
+   overflow (WP's default #wpbody-content is width:100% content-box). */
+body.phpinfowp-page #wpbody-content {
+  padding-top: 18px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+/* The topbar lives inside #wpcontent, which has 20px of left padding by
+   default. Pull the bar flush to the left edge of #wpcontent so it spans
+   the full content area (matches Elementor's full-bleed header). */
+body.phpinfowp-page .phpinfowp-topbar {
+  margin-left: -20px;
+}
+
+/* =========================================================
+   Secondary sidebar — Audit / Tools / Reports
+   Layout: an absolutely-positioned column on the left of #wpbody-content,
+   sitting below the topbar. body.phpinfowp-has-sidenav pushes content right.
+   ========================================================= */
+.phpinfowp-side-nav {
+  position: absolute;
+  top: 18px;
+  left: 0;
+  width: 240px;
+  margin: 0 0 20px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #e4e6eb;
+  border-radius: 8px;
+  box-sizing: border-box;
+  z-index: 1;
+}
+.phpinfowp-side-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.phpinfowp-side-nav-list li { margin: 0; }
+.phpinfowp-side-nav-list li + li { margin-top: 2px; }
+.phpinfowp-side-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1d2327;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background .12s, color .12s;
+}
+.phpinfowp-side-nav-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+  color: #50575e;
+}
+.phpinfowp-side-nav-label-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.phpinfowp-side-nav-item:hover,
+.phpinfowp-side-nav-item:focus {
+  background: #f2f3f5;
+  color: #1d2327;
+  box-shadow: none;
+  outline: none;
+}
+.phpinfowp-side-nav-item:hover .phpinfowp-side-nav-icon,
+.phpinfowp-side-nav-item:focus .phpinfowp-side-nav-icon {
+  color: #1d2327;
+}
+.phpinfowp-side-nav-item.is-active {
+  background: #e8eaed;
+  color: #1d2327;
+  font-weight: 600;
+}
+.phpinfowp-side-nav-item.is-active .phpinfowp-side-nav-icon {
+  color: #1d2327;
+}
+.phpinfowp-side-nav-pro {
+  display: inline-block;
+  background: #777BB3;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* Push the page content right so it sits beside the sidebar.
+   We pad #wpbody-content itself (not just .wrap) because most phpinfo views
+   render content directly into #wpbody-content without a .wrap wrapper.
+   The sidebar is position:absolute so padding doesn't shift it.
+   left padding stacks with the page-wide right padding from .phpinfowp-page. */
+body.phpinfowp-has-sidenav #wpbody-content {
+  position: relative;
+  padding-left: 260px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 782px) {
+  .phpinfowp-side-nav {
+    position: static;
+    width: auto;
+    margin: 10px 0 16px;
+  }
+  body.phpinfowp-has-sidenav #wpbody-content {
+    padding-left: 0;
+  }
+  body.phpinfowp-page #wpbody-content {
+    padding-right: 12px;
+  }
+}
+
+/* =========================================================
+   Dashboard
+   ========================================================= */
+.phpinfowp-dashboard .phpinfowp-page-header {
+  align-items: center;
+}
+
+.phpinfowp-dash-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+@media (max-width: 900px) {
+  .phpinfowp-dash-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+.phpinfowp-dash-stat {
+  display: block;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow .15s, transform .15s, border-color .15s;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+.phpinfowp-dash-stat:hover {
+  border-color: #c8d0e0;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  transform: translateY(-1px);
+  color: inherit;
+}
+.phpinfowp-dash-stat-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: #888;
+  margin-bottom: 6px;
+}
+.phpinfowp-dash-stat-value {
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1;
+  color: #1d2327;
+  margin-bottom: 6px;
+}
+.phpinfowp-dash-stat-meta {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Grade-coloured stat values */
+.phpinfowp-dash-stat-value.grade-aplus,
+.phpinfowp-dash-stat-value.grade-a { color: #00a32a; }
+.phpinfowp-dash-stat-value.grade-b { color: #5b9b3a; }
+.phpinfowp-dash-stat-value.grade-c { color: #dba617; }
+.phpinfowp-dash-stat-value.grade-d { color: #d68f17; }
+.phpinfowp-dash-stat-value.grade-f { color: #d63638; }
+
+.phpinfowp-dash-section {
+  margin-top: 32px;
+}
+.phpinfowp-dash-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: #1d2327;
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Active issues panel */
+.phpinfowp-dash-issues {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.phpinfowp-dash-issue {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-left: 3px solid #dba617;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #1d2327;
+  font-size: 13px;
+  transition: background .15s;
+}
+.phpinfowp-dash-issue:hover {
+  background: #fafafb;
+  color: #1d2327;
+}
+.phpinfowp-dash-issue-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.phpinfowp-dash-issue-detail {
+  color: #666;
+  font-size: 12px;
+  margin-left: auto;
+}
+
+/* Feature card grid */
+.phpinfowp-dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.phpinfowp-dash-card {
+  display: block;
+  padding: 16px 18px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #1d2327;
+  transition: box-shadow .15s, transform .15s, border-color .15s;
+  position: relative;
+}
+.phpinfowp-dash-card:hover {
+  border-color: #777BB3;
+  box-shadow: 0 2px 8px rgba(119,123,179,.15);
+  transform: translateY(-1px);
+  color: #1d2327;
+}
+.phpinfowp-dash-card .dashicons {
+  font-size: 22px;
+  width: 22px;
+  height: 22px;
+  color: #777BB3;
+  margin-bottom: 8px;
+}
+.phpinfowp-dash-card-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.phpinfowp-dash-card-desc {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.45;
+}
+.phpinfowp-dash-card-pro {
+  display: inline-block;
+  background: #777BB3;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 3px;
+  letter-spacing: .4px;
+}
+.phpinfowp-dash-card.is-locked {
+  opacity: .82;
+}
+.phpinfowp-dash-card.is-locked:hover {
+  opacity: 1;
+}
+
+/* =========================================================
+   Security Headers — row cards
+   ========================================================= */
+.phpinfowp-sec-rows { display: flex; flex-direction: column; gap: 10px; }
+
+.phpinfowp-sec-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 18px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-left: 4px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+}
+
+.phpinfowp-sec-row-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.phpinfowp-sec-row-icon .dashicons { font-size: 22px; width: 22px; height: 22px; }
+
+.phpinfowp-sec-row-body { flex: 1; min-width: 0; }
+
+.phpinfowp-sec-row-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.phpinfowp-sec-row-points {
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.phpinfowp-sec-row-desc {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.phpinfowp-sec-row-value {
+  display: inline-block;
+  background: #f0f0f1;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  word-break: break-all;
+  margin-bottom: 4px;
+}
+
+.phpinfowp-sec-row-missing {
+  font-size: 12px;
+  color: #d63638;
+  font-style: italic;
+}
+
+.phpinfowp-sec-row-note {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   Config Grader — section + check cards
+   ========================================================= */
+.phpinfowp-grade-section { margin-bottom: 28px; }
+
+.phpinfowp-grade-section-heading {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: #1d2327;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 2px solid #e0e0e8;
+  padding-bottom: 8px;
+}
+
+.phpinfowp-grade-section-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.phpinfowp-grade-checks { display: flex; flex-direction: column; gap: 8px; }
+
+.phpinfowp-grade-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-left: 4px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.04);
+}
+
+.phpinfowp-grade-check-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.phpinfowp-grade-check-icon .dashicons { font-size: 20px; width: 20px; height: 20px; }
+
+.phpinfowp-grade-check-body { flex: 1; min-width: 0; }
+
+.phpinfowp-grade-check-key {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.phpinfowp-grade-check-key code {
+  background: #f0f0f1;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.phpinfowp-grade-check-values {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+.phpinfowp-grade-check-values code {
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: rgba(0,0,0,.05);
+  font-size: 11px;
+}
+
+.phpinfowp-grade-check-note {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+/* =========================================================
+   Extension page — heading count badge
+   ========================================================= */
+.phpinfowp-ext-heading-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #e0e0e0;
+  color: #555;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 22px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* =========================================================
+   PHP Compatibility Scanner
+   ========================================================= */
+.phpinfowp-compat-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.phpinfowp-compat-controls select {
+  margin-left: 8px;
+  padding: 4px 28px 4px 10px;
+  min-width: 110px;
+}
+.phpinfowp-compat-empty {
+  text-align: center;
+  padding: 60px 20px;
+  background: #fff;
+  border: 2px dashed #e0e0e0;
+  border-radius: 8px;
+  color: #888;
+}
+.phpinfowp-compat-empty .dashicons {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  color: #ccc;
+  margin-bottom: 12px;
+}
+.phpinfowp-compat-empty h3 {
+  margin: 0 0 8px;
+  color: #444;
+}
+.phpinfowp-compat-owner {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+.phpinfowp-compat-owner summary {
+  cursor: pointer;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  list-style: none;
+  user-select: none;
+}
+.phpinfowp-compat-owner summary::-webkit-details-marker { display: none; }
+.phpinfowp-compat-owner summary::before {
+  content: '▸';
+  font-size: 10px;
+  color: #888;
+  transition: transform .15s;
+}
+.phpinfowp-compat-owner[open] summary::before { transform: rotate(90deg); }
+.phpinfowp-compat-owner-type {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  padding: 3px 7px;
+  border-radius: 3px;
+  color: #fff;
+}
+.phpinfowp-compat-owner-name {
+  flex: 1;
+  color: #1d2327;
+  word-break: break-all;
+}
+.phpinfowp-compat-owner-counts {
+  font-size: 12px;
+  color: #666;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.phpinfowp-compat-issues {
+  padding: 4px 16px 14px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.phpinfowp-compat-issue {
+  padding: 10px 12px;
+  background: #fafafa;
+  border-left: 3px solid #ccc;
+  border-radius: 4px;
+}
+.phpinfowp-compat-issue-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+.phpinfowp-compat-sev {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: #fff;
+}
+.phpinfowp-compat-name {
+  background: #f0f0f1;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+.phpinfowp-compat-where {
+  font-size: 11px;
+  color: #666;
+  font-family: monospace;
+}
+.phpinfowp-compat-issue-meta {
+  font-size: 12px;
+  color: #555;
+  padding-left: 0;
+}
+.phpinfowp-compat-fix { color: #444; font-style: italic; }
+
+/* =========================================================
+   Database Health
+   ========================================================= */
+.phpinfowp-dbh-server {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-left: 5px solid #ccc;
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.phpinfowp-dbh-server-engine {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1d2327;
+}
+.phpinfowp-dbh-server-full {
+  font-size: 12px;
+  color: #888;
+  font-family: monospace;
+  margin-top: 2px;
+}
+.phpinfowp-dbh-server-status { text-align: right; }
+.phpinfowp-dbh-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  padding: 3px 9px;
+  border-radius: 3px;
+  color: #fff;
+  display: inline-block;
+}
+.phpinfowp-dbh-server-eol {
+  font-size: 12px;
+  color: #555;
+  margin-top: 4px;
+}
+.phpinfowp-dbh-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.phpinfowp-dbh-metric {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-top: 3px solid #777BB3;
+  border-radius: 6px;
+  padding: 14px 16px;
+}
+.phpinfowp-dbh-metric-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+.phpinfowp-dbh-metric-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  padding: 1px 5px;
+  border-radius: 2px;
+  color: #fff;
+}
+.phpinfowp-dbh-metric-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1d2327;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.phpinfowp-dbh-metric-sub {
+  font-size: 11px;
+  color: #888;
+}
+
+/* =========================================================
+   WP Cron Monitor
+   ========================================================= */
+.phpinfowp-cron-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.phpinfowp-cron-stat {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-top: 3px solid #777BB3;
+  border-radius: 6px;
+  padding: 16px 18px;
+  text-align: center;
+}
+.phpinfowp-cron-stat-num {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+  color: #1d2327;
+}
+.phpinfowp-cron-stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  color: #666;
+}
+.phpinfowp-cron-overdue td  { background: #fff4f4 !important; }
+.phpinfowp-cron-imminent td { background: #fffbf0 !important; }
+.phpinfowp-cron-orphan-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  background: #dba617;
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-left: 6px;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   Mail deliverability
+   ========================================================= */
+.phpinfowp-mail-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 8px;
+}
+.phpinfowp-mail-summary-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: #888;
+  margin-bottom: 4px;
+}
+.phpinfowp-mail-summary-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1d2327;
+  margin-bottom: 2px;
+  word-break: break-all;
+}
+.phpinfowp-mail-summary-sub {
+  font-size: 12px;
+  color: #777;
+}
+.phpinfowp-mail-test-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   Audit Report (print-friendly)
+   ========================================================= */
+.phpinfowp-report {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 40px 48px;
+  max-width: 1100px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+}
+.phpinfowp-report-cover {
+  text-align: center;
+  padding: 16px 0 28px;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #777BB3;
+}
+.phpinfowp-report-brand {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #777BB3;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.phpinfowp-report-title {
+  margin: 0 0 8px;
+  font-size: 28px;
+  color: #1d2327;
+}
+.phpinfowp-report-site {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 4px;
+}
+.phpinfowp-report-url {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 12px;
+}
+.phpinfowp-report-date {
+  font-size: 12px;
+  color: #999;
+}
+.phpinfowp-report-h {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: #1d2327;
+  margin: 28px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.phpinfowp-report-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 8px;
+}
+.phpinfowp-report-stat {
+  background: #fafafa;
+  border: 1px solid #ececec;
+  border-radius: 6px;
+  padding: 14px 16px;
+}
+.phpinfowp-report-stat-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: #888;
+  margin-bottom: 6px;
+}
+.phpinfowp-report-stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1d2327;
+  margin-bottom: 2px;
+}
+.phpinfowp-report-stat-sub {
+  font-size: 12px;
+  color: #666;
+}
+.phpinfowp-report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.phpinfowp-report-table th,
+.phpinfowp-report-table td {
+  border: 1px solid #e8e8e8;
+  padding: 8px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+.phpinfowp-report-table th {
+  background: #f6f6f6;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  color: #555;
+}
+.phpinfowp-report-list {
+  margin: 4px 0 12px 18px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.phpinfowp-report-footer {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid #e0e0e0;
+  font-size: 11px;
+  color: #999;
+  text-align: center;
+}
+
+@media print {
+  body * { visibility: hidden; }
+  .phpinfowp-pro-page, .phpinfowp-pro-page * { visibility: visible; }
+  .phpinfowp-pro-page { position: absolute; left: 0; top: 0; width: 100%; }
+  .no-print, .phpinfowp-report-branding-form { display: none !important; }
+  #adminmenumain, #wpadminbar, #wpfooter, .notice, html.wp-toolbar { display: none !important; }
+  html.wp-toolbar { padding-top: 0 !important; }
+  .phpinfowp-report { border: none; box-shadow: none; padding: 0; max-width: 100%; }
+  .phpinfowp-report-grid { page-break-inside: avoid; }
+  .phpinfowp-report-table { page-break-inside: avoid; }
+  .phpinfowp-report-h { page-break-after: avoid; }
+}
+
+/* ---------- Config Grader free-tier teaser ---------- */
+.phpinfowp-grader-teaser {
+  position: relative;
+  margin-top: 24px;
+  border: 1px solid #e2e4e7;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+.phpinfowp-grader-teaser-blur {
+  padding: 18px 22px;
+  filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+  opacity: .7;
+}
+.phpinfowp-teaser-row {
+  padding: 7px 0;
+  font-size: 13px;
+  color: #1d2327;
+  border-bottom: 1px solid #f0f0f0;
+}
+.phpinfowp-teaser-row:last-child { border-bottom: 0; }
+.phpinfowp-teaser-row code {
+  background: #f3f3f5;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+.phpinfowp-grader-teaser-cta {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(255,255,255,.55) 0%, rgba(255,255,255,.95) 60%);
+  text-align: center;
+  padding: 20px;
+}
+.phpinfowp-grader-teaser-cta h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: #1d2327;
+}
+.phpinfowp-grader-teaser-cta p {
+  margin: 0 0 14px;
+  max-width: 540px;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ---------- EOL Pro upsell footer ---------- */
+.phpinfowp-eol-upsell {
+  margin-top: 28px;
+  padding: 22px 24px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background: #f7f5fc;
+  border: 1px solid #d9d3ec;
+  border-left: 5px solid #777BB3;
+  border-radius: 8px;
+}
+.phpinfowp-eol-upsell-icon .dashicons {
+  font-size: 36px;
+  width: 36px;
+  height: 36px;
+  color: #777BB3;
+}
+.phpinfowp-eol-upsell-body { flex: 1; }
+.phpinfowp-eol-upsell-body h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  color: #1d2327;
+}
+.phpinfowp-eol-upsell-body p {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+.phpinfowp-eol-upsell-list {
+  margin: 0 0 14px 0;
+  padding: 0;
+  list-style: none;
+}
+.phpinfowp-eol-upsell-list li {
+  padding: 4px 0;
+  font-size: 13px;
+  color: #444;
+  padding-left: 22px;
+  position: relative;
+}
+.phpinfowp-eol-upsell-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  color: #00a32a;
+  font-weight: 700;
+}
+
+/* ---------- License view: 3-pillar grid ---------- */
+.phpinfowp-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 20px;
+}
+@media (max-width: 960px) { .phpinfowp-pillars { grid-template-columns: 1fr; } }
+.phpinfowp-pillar {
+  background: #fff;
+  border: 1px solid #e2e4e7;
+  border-radius: 10px;
+  padding: 20px 22px;
+}
+.phpinfowp-pillar-header {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.phpinfowp-pillar-header .dashicons {
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+  color: #777BB3;
+}
+.phpinfowp-pillar-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: #1d2327;
+}
+.phpinfowp-pillar-tag {
+  font-size: 12px;
+  color: #777;
+}
+.phpinfowp-pillar-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.phpinfowp-pillar-items li {
+  padding: 7px 0 7px 22px;
+  position: relative;
+  font-size: 13px;
+  color: #333;
+  line-height: 1.4;
+  border-bottom: 1px solid #f4f4f6;
+}
+.phpinfowp-pillar-items li:last-child { border-bottom: 0; }
+.phpinfowp-pillar-items li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  color: #00a32a;
+  font-weight: 700;
+}
+
+/* ---------- License view: pricing ---------- */
+.phpinfowp-pricing {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 20px;
+}
+@media (max-width: 960px) { .phpinfowp-pricing { grid-template-columns: 1fr; } }
+.phpinfowp-pricing-tier {
+  position: relative;
+  background: #fff;
+  border: 1px solid #e2e4e7;
+  border-radius: 10px;
+  padding: 28px 22px 22px;
+  text-align: center;
+}
+.phpinfowp-pricing-tier.is-featured {
+  border-color: #777BB3;
+  box-shadow: 0 4px 16px rgba(119,123,179,.15);
+  transform: translateY(-4px);
+}
+.phpinfowp-pricing-flag {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #777BB3;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.phpinfowp-pricing-flag.is-warn { background: #dba617; }
+.phpinfowp-pricing-name {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: #555;
+  margin-bottom: 6px;
+}
+.phpinfowp-pricing-price {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1d2327;
+  margin-bottom: 14px;
+}
+.phpinfowp-pricing-price span {
+  font-size: 13px;
+  font-weight: 500;
+  color: #777;
+  margin-left: 2px;
+}
+.phpinfowp-pricing-list {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  text-align: left;
+}
+.phpinfowp-pricing-list li {
+  padding: 5px 0 5px 20px;
+  position: relative;
+  font-size: 13px;
+  color: #333;
+}
+.phpinfowp-pricing-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  color: #00a32a;
+  font-weight: 700;
+}
+.phpinfowp-pricing-tier .button {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+.phpinfowp-pricing-foot {
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+  margin-top: 18px;
+}
+
+/* ---------- Upgrade gate: 3-pillar ---------- */
+.phpinfowp-upgrade-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 24px 0 24px;
+}
+@media (max-width: 700px) { .phpinfowp-upgrade-pillars { grid-template-columns: 1fr; } }
+.phpinfowp-upgrade-pillar {
+  background: #fafafc;
+  border: 1px solid #eaeaef;
+  border-radius: 8px;
+  padding: 16px 18px;
+}
+.phpinfowp-upgrade-pillar-icon .dashicons {
+  font-size: 22px;
+  width: 22px;
+  height: 22px;
+  color: #777BB3;
+  margin-bottom: 4px;
+}
+.phpinfowp-upgrade-pillar-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1d2327;
+}
+.phpinfowp-upgrade-pillar-tag {
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 10px;
+}
+.phpinfowp-upgrade-pillar-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.phpinfowp-upgrade-pillar-items li {
+  padding: 3px 0 3px 16px;
+  position: relative;
+  font-size: 12px;
+  color: #444;
+}
+.phpinfowp-upgrade-pillar-items li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  color: #00a32a;
+  font-weight: 700;
+  font-size: 11px;
+}
+/* Visual break between the three pillars and the three price tiers so users
+   don't read them as paired columns (Safeguard=$29, Insight=$69, etc.). */
+.phpinfowp-upgrade-plans-header {
+  margin: 36px 0 14px;
+  padding-top: 28px;
+  border-top: 1px solid #e2e4e7;
+  text-align: center;
+}
+.phpinfowp-upgrade-plans-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: #1d2327;
+}
+.phpinfowp-upgrade-plans-note {
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+}
+.phpinfowp-upgrade-plans-note strong { color: #1d2327; }
+.phpinfowp-upgrade-price-sub {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #777;
+  line-height: 1.4;
+}
+.phpinfowp-upgrade-pricing {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 0 0 24px;
+}
+@media (max-width: 700px) { .phpinfowp-upgrade-pricing { grid-template-columns: 1fr; } }
+.phpinfowp-upgrade-price-tier {
+  position: relative;
+  border: 1px solid #e2e4e7;
+  border-radius: 8px;
+  padding: 16px 12px;
+  text-align: center;
+  background: #fff;
+}
+.phpinfowp-upgrade-price-tier.is-featured {
+  border-color: #777BB3;
+  box-shadow: 0 2px 10px rgba(119,123,179,.12);
+}
+.phpinfowp-upgrade-price-name {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  color: #777;
+}
+.phpinfowp-upgrade-price-value {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1d2327;
+  margin-top: 4px;
+}
+.phpinfowp-upgrade-price-value small {
+  font-size: 11px;
+  font-weight: 500;
+  color: #888;
+  margin-left: 2px;
+}
+.phpinfowp-upgrade-price-best {
+  margin-top: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #777BB3;
+  letter-spacing: .3px;
+}
+.phpinfowp-upgrade-price-best.is-warn { color: #dba617; }
+
+/* ---------- Report branding form ---------- */
+.phpinfowp-report-branding-form {
+  background: #fff;
+  border: 1px solid #e2e4e7;
+  border-radius: 8px;
+  padding: 18px 24px;
+  margin-bottom: 24px;
+}
+.phpinfowp-report-branding-form h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+.phpinfowp-report-branding-form .form-table th { width: 180px; padding: 12px 10px 12px 0; }
+.phpinfowp-report-branding-form .form-table td { padding: 10px; }
+/* ---------- AI Explain (WP 7.0 AI Client integration) ---------- */
+.phpinfowp-ai-out {
+  margin: 8px 0 0;
+  padding: 10px 12px;
+  background: #f5f6ff;
+  border-left: 3px solid #777BB3;
+  border-radius: 0 4px 4px 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #333;
+  white-space: pre-wrap;
+}
+.phpinfowp-ai-out:empty { display: none; }
+
+/* ---------- License meta (registered to, expires, activated) ---------- */
+.phpinfowp-license-meta {
+  margin-top: 14px;
+  padding: 12px 14px;
+  background: #fafbff;
+  border: 1px solid #e8eaf0;
+  border-radius: 6px;
+}
+.phpinfowp-license-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 4px 0;
+  font-size: 13px;
+}
+.phpinfowp-license-meta-row + .phpinfowp-license-meta-row {
+  border-top: 1px solid #f0f1f5;
+}
+.phpinfowp-license-meta-label {
+  color: #666;
+  font-weight: 500;
+}
+.phpinfowp-license-meta-value {
+  color: #1d2327;
+  font-weight: 500;
+  text-align: right;
 }

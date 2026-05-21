@@ -1,10 +1,33 @@
 {
-  "name": "phpinfo-wp",
-  "title": "phpinfo WP",
-  "description": "A simple plugin to look up information about PHP and manage PHP configurations and directive values.",
-  "author": "Exeebit",
-  "version": "6.1",
-  "slug": "phpinfo-wp",
-  "license": "GPLv3",
-  "namespace": "phpinfo_wp"
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "phpinfo() WP — Site Health, PHP Compatibility & Server Audit",
+    "description": "Modern WordPress site health, PHP compatibility scanner, troubleshooting mode, and config audit. A maintained, in-admin alternative to Health Check.",
+    "author": "Exeebit",
+    "categories": ["site-health", "developer", "performance"]
+  },
+  "landingPage": "/wp-admin/admin.php?page=phpinfo-wp",
+  "preferredVersions": {
+    "php": "8.2",
+    "wp": "latest"
+  },
+  "phpExtensionBundles": ["kitchen-sink"],
+  "features": {
+    "networking": true
+  },
+  "login": true,
+  "steps": [
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "wordpress.org/plugins",
+        "slug": "phpinfo-wp"
+      }
+    },
+    {
+      "step": "login",
+      "username": "admin",
+      "password": "password"
+    }
+  ]
 }
